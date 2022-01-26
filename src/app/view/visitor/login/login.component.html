@@ -1,0 +1,40 @@
+<form [formGroup]="form" (ngSubmit)="onSubmit()" (dblclick)="autoComplete()">
+    <div id="logContainer" class="columnStyle loginContainerSize bgLightBlue radius alignText">
+        <div id="logFormsContainer">
+
+            <div id="formSign" formGroupName="main">
+                <p class="titleSize robotoMedium textShadowBottom">{{title}}</p>
+                <input type="email"
+                       formControlName="email"
+                       class="inputLog noOutlineOnFocus radius inputSize noBorder paddingLeft"
+                       placeholder="Email">
+                <input type="password"
+                       formControlName="password"
+                       class="inputSize radius noBorder noOutlineOnFocus paddingLeft"
+                       placeholder="Password">
+
+            </div>
+            <p id="linkForgotPassword">
+                <a class="fontSizeSmall robotoLight italic">Forgot password ?</a>
+            </p>
+
+            <input (mousedown)="toggleButtonPress(true);"
+                   (mouseup)="toggleButtonPress(false);"
+                   (mouseleave)="toggleButtonPress(false);"
+                   [ngClass]="{'isPressedClass': isButtonPressed === true}"
+                   type="submit"
+                   value="Log in"
+                   [disabled]="form.invalid"
+                   class="btnLogin inputSizeSubmit robotoMedium bgWhiteBlue radius noBorder fontSizeMedium shadowBottom">
+
+            <p class="robotoLight italic fontSizeSmall">
+                <span>Don't have an account ? </span><a routerLink="/signUp" class="red">Sign up</a>
+            </p>
+        </div>
+    </div>
+</form>
+
+<p *ngIf="isError"
+   class="robotoMedium red bgWhiteBlue radius border padding msgError">
+    Username or password is incorrect
+</p>

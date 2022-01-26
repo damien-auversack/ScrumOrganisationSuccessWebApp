@@ -1,0 +1,9 @@
+<h1 class="title robotoMedium">{{title}}</h1>
+<p id="contactMail"
+    class="robotoLight">
+    {{contactMail}}
+</p>
+
+<div id="logosSocialNetwork">
+    <img alt="Logos of social network" *ngFor="let imgSocialNetwork of imgsSocialNetwork" src="./assets/images/socialNetworkLogos/{{imgSocialNetwork.img}}.jpg">
+</div>

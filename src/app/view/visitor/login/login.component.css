@@ -1,0 +1,36 @@
+.loginContainerSize {
+    height: 340px;
+    width: 350px;
+}
+
+#logFormsContainer>*:first-child {
+    padding-top: 35px;
+}
+
+#linkForgotPassword {
+    margin-top: 5px;
+}
+
+.btnLogin {
+    margin-top: 25px;
+    margin-bottom: 10px;
+}
+
+.isPressedClass {
+    box-shadow: 0 -2px 4px black;
+    background-color: #009B86;
+}
+
+#formSign p {
+    margin-bottom: 20px;
+}
+
+input:first-of-type {
+    margin-bottom: 15px;
+}
+
+.msgError {
+    width: 300px;
+    text-align: center;
+    margin: 20px auto;
+}

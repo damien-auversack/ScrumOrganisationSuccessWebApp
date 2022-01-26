@@ -1,0 +1,11 @@
+<p class="title robotoMedium">{{title}}</p>
+<div id="teamsContainer">
+    <div *ngFor="let elt of team" class="teamContainer">
+        <img *ngIf="elt.profilePicture != ''"
+             alt="{{elt.firstname}} {{elt.lastname}}"
+             src="{{elt.profilePicture}}"
+             class="cursorPointer">
+        <img *ngIf="elt.profilePicture == ''" alt="No profile picture found." src="../../../../assets/images/profilePictures/anonym.jpg" class="cursorPointer">
+        <p class="robotoLight">{{elt.email}}</p>
+    </div>
+</div>

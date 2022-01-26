@@ -1,0 +1,18 @@
+img {
+    height: 100px;
+}
+
+.teamContainer {
+    display: inline-block;
+    text-align: center;
+    padding-right: 100px;
+
+}
+
+.teamContainer>* {
+    padding-top: 50px;
+}
+
+#teamsContainer {
+    text-align: center;
+}
