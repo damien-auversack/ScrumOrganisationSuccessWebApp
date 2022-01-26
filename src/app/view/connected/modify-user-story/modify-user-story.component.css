@@ -1,0 +1,35 @@
+h1 {
+    padding-top: 20px;
+}
+
+input {
+    margin-top: 5px;
+    margin-left: 20px;
+}
+
+h2 {
+    margin-top: 20px;
+}
+
+textarea {
+    margin-top: 5px;
+    resize: none;
+}
+
+input:last-of-type {
+    margin-top: 30px;
+}
+
+.marginTop {
+    margin-top: 20px;
+}
+
+.formSize {
+    width: 420px;
+    height: 550px;
+}
+
+.formMargin {
+    margin-top: 50px;
+    margin-bottom: 20px;
+}

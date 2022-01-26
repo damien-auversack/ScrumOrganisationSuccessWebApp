@@ -1,0 +1,78 @@
+<div class="columnContainer">
+    <form [formGroup]="form" (ngSubmit)="sendData()"
+          (dblclick)="autoComplete()">
+        <div class="inputContainer" formGroupName="main">
+            <div class="formSize bgLightBlue radius marginTop formMargin">
+                <h1 class="robotoMedium title">{{title}}</h1>
+
+                <h2 class="robotoMedium">Project Name</h2>
+                <input type="text"
+                       formControlName="nameProject"
+                       class="inputLog noOutlineOnFocus radius inputSize paddingLeft robotoLight"
+                       placeholder="Project Name">
+
+                <h2 class="robotoMedium">Deadline</h2>
+                <input type="date"
+                       formControlName="deadline"
+                       class="inputLog noOutlineOnFocus radius inputSize paddingLeft"
+                       min="1960-01-01">
+
+                <h2 class="robotoMedium">Description</h2>
+                <textarea
+                    formControlName="description"
+                    rows="4" cols="50"
+                    class="robotoLight"></textarea>
+
+                <h2 class="robotoMedium">Repository URL</h2>
+                <input type="text"
+                       formControlName="repositoryURL"
+                       class="inputLog noOutlineOnFocus radius inputSize paddingLeft robotoLight"
+                       placeholder="Repository URL">
+
+                <input
+                    (mousedown)="toggleButtonPress(true);"
+                    (mouseup)="toggleButtonPress(false);"
+                    (mouseleave)="toggleButtonPress(false);"
+                    [ngClass]="{'isPressedClass': buttonIsPressed === true}"
+                    id="btnSignUp"
+                    type="submit"
+                    value="Create"
+                    [disabled]="form.invalid"
+                    class="cursorPointer inputSizeSubmit robotoMedium bgWhiteBlue radius noBorder fontSizeMedium shadowBottom">
+
+                <div>
+                    <div class="elementMyProject">
+                        <input
+                            [routerLink]="['/projectManager']"
+                            type="button"
+                            value="Back"
+                            (mousedown)="toggleBackButtonPress(true);"
+                            (mouseup)="toggleBackButtonPress(false);"
+                            (mouseleave)="toggleBackButtonPress(false);"
+                            [ngClass]="{'isPressedClass': isBackButtonPressed === true}"
+                            class="cursorPointer inputSizeBack robotoMedium bgLightRed radius noBorder fontSizeMedium shadowBottom marginTop">
+                    </div>
+                </div>
+            </div>
+            <div *ngIf="!isDateOk"
+                 class="alignCenter sizeNormal">
+                <p class="robotoMedium red bgWhiteBlue radius border padding marginTop alignText">
+                    You can't add a project finishing in the past
+                </p>
+            </div>
+            <div *ngIf="isAddOk"
+                 class="alignCenter sizeNormal">
+                <p class="robotoMedium bgWhiteBlue radius border padding marginTop alignText">
+                    Project added successfully
+                </p>
+            </div>
+            <div *ngIf="projectAlreadyExists"
+                 class="alignCenter sizeNormal">
+                <p class="robotoMedium red bgWhiteBlue radius border padding marginTop alignText">
+                    This project already exists !
+                </p>
+            </div>
+        </div>
+    </form>
+</div>
+

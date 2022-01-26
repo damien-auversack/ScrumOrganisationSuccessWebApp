@@ -1,0 +1,10 @@
+<div class="listContainer">
+
+    <h1 class="title robotoMedium">{{title}}</h1>
+    <h2 class="robotoMedium">{{subtitle}}</h2>
+    <ul class="meetingsList">
+        <li class="cursorPointer radius standardCard robotoLight"
+            *ngFor="let meeting of meetings"
+            (click)="goToMeeting(meeting.meetingUrl)">{{meeting.name}}</li>
+    </ul>
+</div>

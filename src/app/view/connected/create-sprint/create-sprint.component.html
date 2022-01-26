@@ -1,0 +1,84 @@
+<div class="columnContainer">
+    <form [formGroup]="form" (ngSubmit)="sendData()" (dblclick)="autoComplete()">
+        <div class="inputContainer" formGroupName="main">
+            <div class="formSize bgLightBlue radius marginTop formMargin">
+                <h1 class="title robotoMedium">{{title}}</h1>
+
+                <h2 class="robotoMedium">Deadline</h2>
+                <input type="date"
+                       formControlName="deadline"
+                       class="inputLog noOutlineOnFocus radius inputSize paddingLeft robotoLight"
+                       min="1960-01-01">
+
+                <h2 class="robotoMedium">Description</h2>
+                <textarea
+                    formControlName="description"
+                    rows="4" cols="50"
+                    class="robotoLight"></textarea>
+
+                <h2 class="robotoMedium">Choose User stories</h2>
+                <select  #Select (change)="assignToSelected(Select.value)" >
+                    <option value="" >--Select an user story--</option>
+                    <option *ngFor="let elt of productBacklog"
+                            value="{{elt.name}}">
+                        US{{elt.priority}} :  {{elt.description}}
+                    </option>
+                </select>
+                <input (click)="addToChosenUserStories()"
+                       class="radius cursorPointer bgWhiteBlue addBtn robotoLight"
+                       type="button"
+                       value="Add">
+
+                <h2 class="robotoMedium">Chosen User stories</h2>
+                <div class="chosenContainer">
+                    <p class="robotoLight"
+                       *ngFor="let elt of chosenUserStories">
+                        US{{elt.priority}} :  {{elt.description}}
+                    </p>
+                </div>
+                <input
+                    (mousedown)="toggleButtonPress(true);"
+                    (mouseup)="toggleButtonPress(false);"
+                    (mouseleave)="toggleButtonPress(false);"
+                    [ngClass]="{'isPressedClass': isButtonPressed === true}"
+                    id="btnSignUp"
+                    type="submit"
+                    value="Create"
+                    [disabled]="form.invalid || chosenUserStories.length <= 0"
+                    class="cursorPointer inputSizeSubmit robotoMedium bgWhiteBlue radius noBorder fontSizeMedium shadowBottom">
+
+                <div>
+                    <div class="elementMyProject">
+                        <input
+                            [routerLink]="['/myProject', projectName]"
+                            type="button"
+                            value="Back"
+                            (mousedown)="toggleBackButtonPress(true);"
+                            (mouseup)="toggleBackButtonPress(false);"
+                            (mouseleave)="toggleBackButtonPress(false);"
+                            [ngClass]="{'isPressedClass': isBackButtonPressed === true}"
+                            class="cursorPointer inputSizeBack robotoMedium bgLightRed radius noBorder fontSizeMedium shadowBottom marginTop">
+                    </div>
+                </div>
+            </div>
+            <div *ngIf="dateIsInPast"
+                 class="alignCenter sizeNormal">
+                <p class="robotoMedium red bgWhiteBlue radius border padding marginTop alignText">
+                    You can't add a sprint finishing in the past!
+                </p>
+            </div>
+            <div *ngIf="isAddOk"
+                 class="alignCenter sizeNormal">
+                <p class="robotoMedium bgWhiteBlue radius border padding marginTop alignText">
+                    The sprint has been successfully added
+                </p>
+            </div>
+            <div *ngIf="sprintAlreadyExists"
+                 class="alignCenter sizeNormal">
+                <p class="robotoMedium red bgWhiteBlue radius border padding marginTop alignText">
+                    This sprint already exists !
+                </p>
+            </div>
+        </div>
+    </form>
+</div>
