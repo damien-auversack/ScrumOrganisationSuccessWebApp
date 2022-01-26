@@ -1,0 +1,24 @@
+.devImg {
+    width: 40px;
+    padding-top: 5px;
+
+}
+.logoDevImg {
+    padding:0!important;
+}
+
+.labelDevImg {
+    padding-left:10px!important;
+}
+
+.colorTomato {
+    color: tomato!important;
+}
+
+.colorGold {
+    color: gold!important;
+}
+
+.colorAquamarine {
+    color: aquamarine!important;
+}

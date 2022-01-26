@@ -1,0 +1,15 @@
+.container {
+    display: flex;
+    flex-direction: column;
+}
+
+img {
+    max-width: 50%;
+    height: 50%;
+    justify-self: center;
+    padding-top: 10%;
+}
+
+.element {
+    margin: auto;
+}

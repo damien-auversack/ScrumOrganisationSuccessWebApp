@@ -1,0 +1,6 @@
+<div [ngSwitch]="role">
+    <app-navbar-developer *ngSwitchCase="RoleEnum.Developer"></app-navbar-developer>
+    <app-navbar-scrum-master *ngSwitchCase="RoleEnum.ScrumMaster"></app-navbar-scrum-master>
+    <app-navbar-product-owner *ngSwitchCase="RoleEnum.ProductOwner"></app-navbar-product-owner>
+    <app-navbar-visitor *ngSwitchDefault></app-navbar-visitor>
+</div>

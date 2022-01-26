@@ -1,0 +1,78 @@
+img {
+    width: 130px;
+    height: 130px;
+}
+
+.addBtn {
+    width: 50px;
+}
+
+.rowContainer {
+    column-count: 2;
+}
+
+.heightCorrect {
+    height: 500px;
+}
+
+.marginRight {
+    margin-right: 50%;
+}
+
+.marginLeft {
+    margin-left: 50%;
+}
+
+.marginTop {
+    padding-top: 10%;
+}
+
+#profilePictureContainer {
+    padding-top: 30px;
+    text-align: center;
+    width: 130px;
+    height: 130px;
+}
+
+.labelImage {
+    color: blue;
+}
+
+.labelImage:hover {
+    cursor:pointer;
+    text-decoration: underline;
+}
+
+label:first-of-type {
+    padding-top:30px;
+}
+
+label {
+    padding:10px;
+}
+
+input[type="submit"] {
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+#editButton {
+    font-size: 20px;
+    position: absolute;
+    left: 50%;
+    top: 125px;
+    transform: translate(-50%, 0);
+    width: 100px;
+}
+
+input[type="submit"]:hover, input[type="button"]:hover {
+    cursor: pointer;
+}
+
+h2 {
+    padding-top: 20px;
+}
+
+.leftText {
+    text-align: left!important;
+}

@@ -1,0 +1,102 @@
+<div class="columnContainer">
+    <div class="pageContainer">
+        <div class="infosProjectContainer elementMyProject">
+            <h1 class="title robotoMedium">Project name</h1>
+            <p class="standardCard radius robotoLight">{{projectName}}</p>
+
+            <h1 class="robotoMedium paddingSubtitle">Deadline</h1>
+            <p class="standardCard radius robotoLight">{{deadline}}</p>
+
+            <h1 class="robotoMedium paddingSubtitle">Description</h1>
+            <p class="standardCard radius robotoLight">{{description}}</p>
+
+            <h1 class="robotoMedium paddingSubtitle">Repository URL</h1>
+            <p class="standardCard radius robotoLight">{{repositoryUrl}}</p>
+
+            <input
+                [routerLink]="['/productBacklog', projectName, idProject]"
+                type="button"
+                value="Product Backlog"
+                (mousedown)="toggleProductBacklogButtonPress(true);"
+                (mouseup)="toggleProductBacklogButtonPress(false);"
+                (mouseleave)="toggleProductBacklogButtonPress(false);"
+                [ngClass]="{'isPressedClass': isProductBacklogButtonPressed === true}"
+                class="cursorPointer inputSizeSubmit robotoMedium bgWhiteBlue radius noBorder fontSizeMedium shadowBottom">
+        </div>
+
+        <div class="sprintContainer elementMyProject">
+            <h1 class="robotoMedium">Active sprint</h1>
+            <span *ngIf="actualSprint.name == ''"
+                  class="cursorPointer radius standardCard robotoLight">
+                <span>No active sprint found.</span>
+            </span>
+            <div [class.active]="clicked !== projectName"
+                 (click)="clicked = (clicked === projectName ? null : projectName)"
+                 class="alignCenter"
+                 *ngIf="actualSprint.name != ''">
+
+                <input
+                    [routerLink]="['/sprintUserStory', actualSprint.name, actualSprint.id]"
+                    type="button"
+                    value="Sprint {{actualSprint.id}} : {{actualSprint.name}}"
+                    class="cursorPointer standardCard radius robotoLight">
+            </div>
+
+            <div>
+                <h1 class="robotoMedium">Old sprints</h1>
+                <span *ngIf="oldSprints.length == 0"
+                      class="cursorPointer radius standardCard robotoLight">
+                <span>No active sprint found.</span>
+            </span>
+                <div *ngFor="let eltSprint of oldSprints; let i = index;"
+                     [class.active]="clicked !== eltSprint"
+                     (click)="clicked = (clicked === eltSprint ? null : eltSprint)"
+                     class="alignCenter">
+
+                    <input
+                        [routerLink]="['/sprintUserStory', eltSprint.name, eltSprint.id]"
+                        type="button"
+                        value="Sprint {{eltSprint.id}} : {{eltSprint.name}}"
+                        class="cursorPointer standardCard radius robotoLight">
+                </div>
+                <input
+                    [routerLink]="['/createSprint', projectName]"
+                    type="button"
+                    value="New Sprint"
+                    *ngIf="actualSprint.name == '' && isScrumMaster"
+                    (mousedown)="toggleCreateSprintButtonPress(true);"
+                    (mouseup)="toggleCreateSprintButtonPress(false);"
+                    (mouseleave)="toggleCreateSprintButtonPress(false);"
+                    [ngClass]="{'isPressedClass': isCreateSprintButtonPressed === true}"
+                    class="cursorPointer inputSizeSubmit robotoMedium bgWhiteBlue radius noBorder fontSizeMedium shadowBottom">
+            </div>
+        </div>
+    </div>
+
+    <div>
+        <div class="elementMyProject">
+            <div>
+                <input
+                [routerLink]="['/userList', projectName, idProject]"
+                type="button"
+                value="User list"
+                (mousedown)="toggleDeleteButtonPress(true);"
+                (mouseup)="toggleDeleteButtonPress(false);"
+                (mouseleave)="toggleDeleteButtonPress(false);"
+                [ngClass]="{'isPressedClass': isDeleteButtonPressed === true}"
+                class="cursorPointer inputSizeSubmit robotoMedium bgWhiteBlue radius noBorder fontSizeMedium shadowBottom">
+            </div>
+            <div>
+                <input
+                    [routerLink]="['/projectManager']"
+                    type="button"
+                    value="Back"
+                    (mousedown)="toggleBackButtonPress(true);"
+                    (mouseup)="toggleBackButtonPress(false);"
+                    (mouseleave)="toggleBackButtonPress(false);"
+                    [ngClass]="{'isPressedClass': isBackButtonPressed === true}"
+                    class="cursorPointer inputSizeBack robotoMedium bgLightRed radius noBorder fontSizeMedium shadowBottom">
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,12 @@
+h2 {
+    padding-top: 30px;
+    padding-bottom: 20px;
+}
+
+input {
+    margin-bottom: 20px;
+}
+
+.inputSizeSubmitSmall:first-of-type {
+    margin-right: 10px;
+}

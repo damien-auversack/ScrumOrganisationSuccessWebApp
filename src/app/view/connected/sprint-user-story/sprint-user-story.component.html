@@ -1,0 +1,33 @@
+<div class="pageContainer">
+    <div class="productBacklogContainer">
+        <h1 class="robotoMedium">Sprint info</h1>
+        <span class="standardCard radius robotoLight">Sprint {{idSprint}} : {{sprintName}}</span>
+        <button
+            *ngIf="isScrumMaster && sprintName != ''"
+            [routerLink]="['/createMeeting', projectName, idSprint]"
+            (mousedown)="toggleCreateMeetingButtonPress(true);"
+            (mouseup)="toggleCreateMeetingButtonPress(false);"
+            (mouseleave)="toggleCreateMeetingButtonPress(false);"
+            [ngClass]="{'isPressedClass': isCreateMeetingButtonPressed === true}"
+            class="cursorPointer inputSizeSubmit robotoMedium bgWhiteBlue radius noBorder fontSizeMedium shadowBottom marginTop">
+            Create Meeting
+        </button>
+
+        <h1 class="title robotoMedium">Sprint backlog</h1>
+
+        <div *ngFor="let elt of UserStories;" class="userStoriesContainer">
+            <span [routerLink]="['/comments', elt.id, projectName]" class="standardCard radius robotoLight cursorPointer">US{{elt.priority}} - {{elt.name}} : {{elt.description}}</span>
+        </div>
+
+        <button
+            *ngIf="isScrumMaster && sprintName != ''"
+            [routerLink]="['/myProject', projectName]"
+            (mousedown)="toggleBackButtonPress(true);"
+            (mouseup)="toggleBackButtonPress(false);"
+            (mouseleave)="toggleBackButtonPress(false);"
+            [ngClass]="{'isPressedClass': isBackButtonPressed === true}"
+            class="cursorPointer inputSizeBack robotoMedium bgLightRed radius noBorder fontSizeMedium shadowBottom marginTop">
+            Back
+        </button>
+    </div>
+</div>

@@ -1,0 +1,70 @@
+<div class="columnContainer">
+    <form [formGroup]="form" (dblclick)="autoComplete()" >
+        <div class="inputContainer">
+            <div class="formSize bgLightBlue radius marginTop formMargin">
+                <h1 class="robotoMedium paddingSubtitle">Add a meeting</h1>
+                <form formGroupName="newMeeting" (ngSubmit)="onSubmitNewMeeting()">
+                    <input type="datetime-local"
+                           class="inputSize radius marginTop noOutlineOnFocus paddingLeft robotoLight"
+                           formControlName="schedule">
+
+                    <br/>
+                    <input type="text"
+                           class="inputSize radius marginTop noOutlineOnFocus paddingLeft robotoLight"
+                           formControlName="name"
+                           placeholder="Meeting name">
+
+                    <br/>
+                    <textarea
+                        formControlName="description"
+                        rows="4" cols="50"
+                        class="robotoLight marginTop"
+                        placeholder="Your meeting's description"></textarea>
+
+                    <br/>
+                    <input (mousedown)="toggleButtonSaveNewMeetingPressed(true);"
+                           (mouseleave)="toggleButtonSaveNewMeetingPressed(false);"
+                           (mouseup)="toggleButtonSaveNewMeetingPressed(false);"
+                           [disabled]="form.invalid"
+                           [ngClass]="{'isPressedClass': isButtonSaveNewMeetingPressed === true}"
+                           class="inputSizeSubmit robotoMedium bgWhiteBlue radius noBorder fontSizeMedium shadowBottom marginTop"
+                           id="btnNewMeeting"
+                           type="submit"
+                           value="Save">
+                </form>
+
+                <div>
+                    <div class="elementMyProject">
+                        <input
+                            [routerLink]="['/sprintUserStory', sprintName, idSprint]"
+                            type="button"
+                            value="Back"
+                            (mousedown)="toggleBackButtonPress(true);"
+                            (mouseup)="toggleBackButtonPress(false);"
+                            (mouseleave)="toggleBackButtonPress(false);"
+                            [ngClass]="{'isPressedClass': isBackButtonPressed === true}"
+                            class="cursorPointer inputSizeBack robotoMedium bgLightRed radius noBorder fontSizeMedium shadowBottom marginTop">
+                    </div>
+                </div>
+            </div>
+            <div *ngIf="!isDateOk"
+                 class="alignCenter sizeNormal">
+                <p class="robotoMedium red bgWhiteBlue radius border padding marginTop alignText">
+                    You can't add a meeting in the past.
+                </p>
+            </div>
+            <div *ngIf="isAddingOfMeetingOk"
+                 class="alignCenter sizeNormal">
+                <p class="robotoMedium bgWhiteBlue radius border padding marginTop alignText">
+                    Your meeting has been added.
+                </p>
+            </div>
+            <div *ngIf="meetingAlreadyExists"
+                 class="alignCenter sizeNormal">
+                <p class="robotoMedium red bgWhiteBlue radius border padding marginTop alignText">
+                    This meeting already exists !
+                </p>
+            </div>
+        </div>
+    </form>
+</div>

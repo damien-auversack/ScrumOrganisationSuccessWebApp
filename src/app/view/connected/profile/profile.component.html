@@ -1,0 +1,50 @@
+<form [formGroup]="form" (ngSubmit)="sendData()">
+    <div class="rowContainer">
+        <div class="inputContainer heightCorrect marginLeft" formGroupName="main">
+            <div id="profilePictureContainer"
+                 (mouseenter)="isEditButtonHidden=false;"
+                 (mouseleave)="isEditButtonHidden=true;">
+                <img src="{{profilePicture}}" alt="">
+            </div>
+            <label class="robotoMedium">LastName</label>
+            <input type="text"
+                   formControlName="lastName"
+                   class="inputSize radius noOutlineOnFocus paddingLeft robotoLight">
+
+            <label class="robotoMedium">FirstName</label>
+            <input type="text"
+                   formControlName="firstName"
+                   class="inputSize radius noOutlineOnFocus paddingLeft robotoLight">
+
+            <label class="robotoMedium">E-mail</label>
+            <p class="inputSize radius noOutlineOnFocus paddingLeft robotoLight">{{email}}</p>
+
+            <input type="submit" value="Save & Logout"
+                   (mousedown)="toggleButtonPress(true);"
+                   (mouseup)="toggleButtonPress(false);"
+                   (mouseleave)="toggleButtonPress(false);"
+                   [ngClass]="{'isPressedClass': buttonIsPressed === true}"
+                   class="inputSizeSubmit robotoMedium bgWhiteBlue radius noBorder fontSizeMedium shadowBottom">
+        </div>
+        <div class="heightCorrect marginRight">
+            <h2 class="robotoMedium marginTop">Your experience</h2>
+            <p class="robotoLight">You worked an equivalent of {{experience}} days on SOS.</p>
+            <table class="marginTop">
+                <thead>
+                    <tr>
+                        <th class="robotoMedium fontSizeMedium">Technologies</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let elt of technologies; let index=index">
+                        <td class="robotoLight">{{elt.name}}</td>
+                        <td></td>
+                        <td>
+                            <input type="checkbox" (change)="modifyTechnologies($event, elt);" [checked]="isHisTechnologies[index]">
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</form>
