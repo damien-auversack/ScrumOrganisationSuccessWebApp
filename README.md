@@ -10,6 +10,12 @@ Framework  : HTML, CSS, TypeScript.
 
 ## Liens du projet :
 
+Repository API : https://github.com/damien-auversack/ScrumOrganisationSuccessAPI
+
+Repository Web-App : https://github.com/damien-auversack/ScrumOrganisationSuccessWebApp
+
+Repository Android-App : https://github.com/damien-auversack/ScrumOrganisationSuccessAndroidApp
+
 ## Images de présentation :
 
 <div>
