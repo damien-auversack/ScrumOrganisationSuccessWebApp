@@ -1,0 +1,200 @@
+/*Fonts*/
+@font-face {
+    font-family: "Roboto Light";
+    src: local("Roboto Light"), url("../assets/fonts/Roboto/Roboto-Light.ttf") format("truetype");
+}
+
+@font-face {
+    font-family: "Roboto Medium";
+    src: local("Roboto Medium"), url("../assets/fonts/Roboto/Roboto-Medium.ttf") format("truetype");
+}
+
+.robotoMedium {
+    font-family: "Roboto Medium", serif;
+}
+
+.robotoLight {
+    font-family: "Roboto Light", serif;
+}
+
+.title {
+    margin-top: 20px;
+    font-size: xx-large;
+    text-align: center;
+    font-weight: bold;
+}
+
+#logContainer {
+    margin: 50px auto auto;
+}
+
+a:hover {
+    cursor: pointer;
+}
+
+.titleSize {
+    font-size: 38px;
+}
+
+.paddingLeft {
+    padding-left: 20px;
+}
+
+.noBorder {
+    border: none;
+}
+
+.inputSize {
+    height: 32px;
+    width: 200px;
+}
+
+.radioSize {
+    height: 20px;
+    width: 20px;
+}
+
+.inputSizeSubmit {
+    height: 40px;
+    width: 220px;
+}
+
+.inputSizeSubmitSmall {
+    height: 40px;
+    width: 110px;
+
+}
+
+.inputSizeBack {
+    height: 40px;
+    width: 110px;
+}
+
+.bgLightBlue {
+    background-color: #A9DFD8;
+}
+
+.bgWhiteBlue {
+    background-color: #D7F4F0;
+}
+
+.bgLightRed {
+    background-color: #F94144;
+}
+
+.bgHardBlue {
+    background-color: #009B86;
+}
+
+.alignText {
+    text-align: center;
+}
+
+.radius {
+    border-radius: 5px;
+}
+
+.noOutlineOnFocus:focus {
+    outline: none;
+}
+
+.italic{
+    font-style: italic;
+}
+
+.fontSizeSmall {
+    font-size: 11px;
+}
+
+.fontSizeMedium {
+    font-size: 24px;
+}
+
+.red {
+    color: red;
+}
+
+.shadowBottom {
+    box-shadow: 0 2px 4px black;
+}
+
+.shadowTop {
+    box-shadow: 0 -2px 4px black;
+}
+
+.textShadowBottom {
+    text-shadow: 1px 1px 2px black;
+}
+
+.cursorPointer:hover {
+    cursor: pointer;
+}
+
+.isPressedClass {
+    box-shadow: 0 -2px 4px black;
+    background-color: #009B86;
+}
+
+.inputContainer, .listContainer, .todoList, .pageContainer, .notifContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.pageContainer {
+    display: flex;
+    flex-direction: row;
+    text-align: center;
+    justify-content:space-evenly;
+}
+
+.colorGreen {
+    color: green;
+}
+
+.colorRed {
+    color: red;
+}
+
+.standardCard {
+    width: 600px;
+    height: 50px;
+    background-color: antiquewhite!important;
+    display : flex;
+    align-items : center;
+    justify-content : center;
+    border: solid black 2px;
+    margin: 5px;
+}
+
+.paddingSubtitle {
+    padding-top: 20px;
+    padding-bottom: 10px;
+}
+
+.border {
+    border: solid black 1px;
+}
+
+.padding {
+    padding: 5px;
+}
+
+.columnContainer {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    justify-content: space-evenly;
+}
+
+.sizeNormal {
+    width: 420px;
+}
+
+.alignCenter {
+    text-align: center;
+}
+
+.formSize {
+    width: 420px;
+}
